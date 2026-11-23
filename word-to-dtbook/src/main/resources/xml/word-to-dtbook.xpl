@@ -121,6 +121,7 @@
 		<p:with-param name="disableDateGeneration" select="$disableDateGeneration"/>
 		<p:with-param name="disableGeneratorGeneration" select="$disableGeneratorGeneration"/>
 		<p:with-param name="extractShapes" select="$extract-shapes"/>
+		<p:with-param name="mainLanguage" select="$documentLanguage"/>
 	</p:xslt>
 	<p:group>
 		<p:documentation>Store plain text file and load as XML</p:documentation>

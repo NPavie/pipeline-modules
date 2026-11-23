@@ -238,10 +238,10 @@ levels will also change, which will alter the appearance of the layout.</p>
 from em, strong, sub, sup, pagenum, noteref.</p>
 		</p:documentation>
 	</p:option>
-	<p:option name="documentLanguage" select="''" px:hidden="true">
+	<p:option name="language" select="''">
 		<p:documentation xmlns="http://www.w3.org/1999/xhtml">
-			<h2 px:role="name">Tidy - Document language</h2>
-			<p px:role="desc">Set a document language</p>
+			<h2 px:role="name">Document language</h2>
+			<p px:role="desc">Set or change the document main language</p>
 		</p:documentation>
 	</p:option>
 	<p:option name="narrator" select="false()" cx:as="xs:boolean">
@@ -309,7 +309,7 @@ if MathML is present in the document.</p>
 		<p:with-option name="tidy" select="$tidy"/>
 		<p:with-option name="simplifyHeadingLayout" select="$simplifyHeadingLayout"/>
 		<p:with-option name="externalizeWhitespace" select="$externalizeWhitespace"/>
-		<p:with-option name="documentLanguage" select="$documentLanguage"/>
+		<p:with-option name="documentLanguage" select="$language"/>
 		<p:with-option name="narrator" select="$narrator"/>
 		<p:with-option name="ApplySentenceDetection" select="$ApplySentenceDetection"/>
 		<p:with-option name="WithDoctype" select="$WithDoctype"/>

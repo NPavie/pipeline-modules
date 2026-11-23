@@ -48,7 +48,7 @@
 	<xsl:param name="FootnotesStartValue" as="xs:integer" select="1" />
 	<xsl:param name="FootnotesNumberingPrefix" as="xs:string?" select="''"/>
 	<xsl:param name="FootnotesNumberingSuffix" as="xs:string?" select="''"/>
-	<xsl:param name="Language" as="xs:string?" select="''"/>
+	<xsl:param name="mainLanguage" as="xs:string?" select="''"/>
 	
 	<!-- For regression tests comparisons -->
 	<xsl:param name="disableDateGeneration" as="xs:boolean" select="false()" />
@@ -120,13 +120,13 @@
 			<xsl:sequence select="$uniqRunnerLanguages"/>
 		</xsl:variable>
 		<!-- Count languages and emit the ordered list (most frequent first, ties keep
-		     first appearance order; the $Language parameter value is excluded) -->
-		<xsl:if test="$Language and string-length($Language) &gt; 0">
+		     first appearance order; the $mainLanguage parameter value is excluded) -->
+		<xsl:if test="$mainLanguage and string-length($mainLanguage) &gt; 0">
 			<lang val="{@*:val}"/>
 		</xsl:if>
 		<xsl:for-each-group select="$paragraphLanguages" group-by=".">
 			<xsl:sort select="count(current-group())" data-type="number" order="descending"/>
-			<xsl:if test="not($Language = current-grouping-key())">
+			<xsl:if test="not($mainLanguage = current-grouping-key())">
 				<lang val="{current-grouping-key()}" />
 			</xsl:if>
 		</xsl:for-each-group>

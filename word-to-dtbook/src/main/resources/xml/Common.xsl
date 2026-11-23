@@ -42,7 +42,7 @@
 	<xsl:param name="FootnotesStartValue" as="xs:integer" select="1" />
 	<xsl:param name="FootnotesNumberingPrefix" as="xs:string?" select="''"/>
 	<xsl:param name="FootnotesNumberingSuffix" as="xs:string?" select="''"/>
-	<xsl:param name="Language" as="xs:string?" select="''"/>
+	<xsl:param name="mainLanguage" as="xs:string?" select="''"/>
 
 
 	<!-- Template for content of front|body|rearmatter -->

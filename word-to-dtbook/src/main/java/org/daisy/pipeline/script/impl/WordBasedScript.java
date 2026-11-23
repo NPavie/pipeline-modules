@@ -164,6 +164,7 @@ public abstract class WordBasedScript implements ScriptService<Script>, ScriptSe
 				builder = builder.withInputPort(p.getName(), p);
 			for (ScriptOption o : wordToDTBook.getOptions()) {
 				String name = o.getName();
+				// Settings used in word-to-dtbook conversion
 				if (   "title".equals(name)
 				    || "creator".equals(name)
 				    || "publisher".equals(name)
@@ -172,6 +173,8 @@ public abstract class WordBasedScript implements ScriptService<Script>, ScriptSe
 				    || "accept-revisions".equals(name)
 				    || "repair".equals(name)
 				    || "tidy".equals(name)
+					|| "extract-shapes".equals(name)
+					|| "language".equals(name)
 				)
 					builder = builder.withOption(name, o);
 			}
@@ -186,7 +189,6 @@ public abstract class WordBasedScript implements ScriptService<Script>, ScriptSe
 					String name = o.getName();
 					if (   "include-tts-log".equals(name)          //  x          x                         x                  x
 					    || "tts-config".equals(name)               //  x          x                         x                  x
-					    || "language".equals(name)                 //             x                         x         x
 					    || "validation".equals(name)               //             x                         x         x
 					    || "folder-depth".equals(name)             //                                                          x
 					    || "epub-package".equals(name)             //                          x
