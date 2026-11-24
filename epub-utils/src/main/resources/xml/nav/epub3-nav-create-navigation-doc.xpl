@@ -593,7 +593,7 @@
 					                                                    [string(.)='tableOfContents'] and
 					              //opf:metadata/opf:meta[not(@refines)][@property='schema:accessibilityFeature']
 					                                                    [string(.)='pageNavigation'] and
-					              //opf:metadata/opf:meta[not(@refines)][@property='a11y:pageBreakSource']">
+					              //opf:metadata/opf:meta[not(@refines)][@property=('a11y:pageBreakSource','pageBreakSource')]">
 						<p:output port="fileset" primary="true"/>
 						<p:output port="in-memory" sequence="true">
 							<p:pipe step="package-doc-with-nav-property" port="result.in-memory"/>
@@ -678,19 +678,19 @@
 										</p:xpath-context>
 										<!-- FIXME: also recognize "source-of pagination" refinement on dc:source -->
 										<p:when test="//opf:metadata/opf:meta[not(@refines)]
-										                                     [@property='pageBreakSource']">
+										                                     [@property=('pageBreakSource', 'a11y:pageBreakSource')]">
 											<p:insert position="last-child">
 												<p:input port="insertion" select="//opf:metadata/opf:meta[not(@refines)]
-												                                                         [@property='pageBreakSource']">
+												                                                         [@property=('pageBreakSource', 'a11y:pageBreakSource')]">
 													<p:pipe step="package-doc" port="result"/>
 												</p:input>
 											</p:insert>
-											<p:add-attribute match="opf:meta[@property='pageBreakSource']"
+											<p:add-attribute match="opf:meta[@property=('pageBreakSource', 'a11y:pageBreakSource')]"
 											                 attribute-name="property"
-											                 attribute-value="a11y:pageBreakSource"/>
+											                 attribute-value="pageBreakSource"/>
 										</p:when>
 										<p:when test="not(//opf:metadata/opf:meta[not(@refines)]
-										                                         [@property='a11y:pageBreakSource'])">
+										                                         [@property=('a11y:pageBreakSource','pageBreakSource')])">
 											<p:insert position="last-child"
 											          px:message-severity="WARN"
 											          px:message="{concat('A page list is present but no page break source identified. ',
@@ -698,7 +698,7 @@
 											                              'if the page breaks are unique to the EPUB publication.')}">
 												<p:input port="insertion">
 													<p:inline exclude-inline-prefixes="#all" xmlns="http://www.idpf.org/2007/opf">
-														<meta property="a11y:pageBreakSource">unknown</meta>
+														<meta property="pageBreakSource">unknown</meta>
 													</p:inline>
 												</p:input>
 											</p:insert>

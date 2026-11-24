@@ -57,6 +57,9 @@
                          follows px:dtbook-to-zedai-meta.) -->
                     <meta property="{@name}" content="{@content}"/>
                 </xsl:when>
+                <xsl:when test="@name='pageBreakSource'">
+                    <meta property="{@name}" content="{@content}"/>
+                </xsl:when>
             </xsl:choose>
         </xsl:for-each>
     </xsl:template>

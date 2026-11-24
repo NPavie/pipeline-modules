@@ -422,7 +422,7 @@
 						<meta name="dc:Rights" content="{$customPropsXml//ccp:property[@name='Rights']/vtp:lpwstr/text()}"/>
 					</xsl:if>
 					<xsl:if test="$customPropsXml//ccp:property[@name='Source']/vtp:lpwstr[string-length(text()) &gt; 0]">
-						<meta name="a11y:pageBreakSource" content="{$customPropsXml//ccp:property[@name='Source']/vtp:lpwstr/text()}"/>
+						<meta name="pageBreakSource" content="{$customPropsXml//ccp:property[@name='Source']/vtp:lpwstr/text()}"/>
 					</xsl:if>
 					<xsl:if test="$customPropsXml//ccp:property[@name='AccessibilitySummary']/vtp:lpwstr[string-length(text()) &gt; 0]">
 						<meta name="schema:accessibilitySummary" content="{$customPropsXml//ccp:property[@name='AccessibilitySummary']/vtp:lpwstr/text()}"/>
