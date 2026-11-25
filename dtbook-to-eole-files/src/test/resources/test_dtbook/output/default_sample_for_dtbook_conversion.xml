@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dtbook PUBLIC '-//NISO//DTD dtbook 2005-3//EN' 'http://www.daisy.org/z3986/2005/dtbook-2005-3.dtd' [
+    <!ENTITY % MATHML.prefixed "INCLUDE" >
+    <!ENTITY % MATHML.prefix "mml">
+    <!ENTITY % Schema.prefix "sch">
+    <!ENTITY % XLINK.prefix "xlp">
+    <!ENTITY % MATHML.Common.attrib
+        "xlink:href    CDATA       #IMPLIED
+        xlink:type     CDATA       #IMPLIED
+        class          CDATA       #IMPLIED
+        style          CDATA       #IMPLIED
+        id             ID          #IMPLIED
+        xref           IDREF       #IMPLIED
+        other          CDATA       #IMPLIED
+        xmlns:dtbook   CDATA       #FIXED
+            'http://www.daisy.org/z3986/2005/dtbook/'
+        dtbook:smilref CDATA       #IMPLIED">
+    <!ENTITY % mathML2 PUBLIC '-//W3C//DTD MathML 2.0//EN' 'http://www.w3.org/Math/DTD/mathml2/mathml2.dtd'>
+    %mathML2;
+    <!ENTITY % externalFlow "| mml:math">
+    <!ENTITY % externalNamespaces "xmlns:mml CDATA #FIXED
+              'http://www.w3.org/1998/Math/MathML'" >
+] >
+<dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xmlns:mml="http://www.w3.org/1998/Math/MathML" version="2005-3" xml:lang="en-US">
+	<head>
+		<meta name="dtb:uid" content="7291720752806836017"/>
+		<meta name="dc:Identifier" content="urn:uuid:7291720752806836017"/>
+		<meta name="dtb:generator" content="DAISY Pipeline - Word to DTBook 1.1.4-SNAPSHOT"/>
+		<meta name="dc:Title" content="Default word sample for docx-to-dtbook tests"/>
+		<meta name="dc:Creator" content="PAVIE Nicolas"/>
+		<meta name="dc:Date" content="2026-11-18"/>
+		<meta name="dc:Publisher" content="Daisy consortium"/>
+		<meta name="dc:Description" content="This is a sample document used to test if various errors are fixed."/>
+		<meta name="dc:Source" content="urn:isbn:9780000001234"/>
+		<meta name="dc:Language" content="en-US"/>
+		<meta name="dc:Language" content="fr-FR"/>
+		<meta name="dc:Language" content="sv-SE"/>
+		<meta name="dc:Contributor" content="Test contributor"/>
+		<meta name="dc:Rights" content="No copyright provided"/>
+		<meta name="a11y:pageBreakSource" content="No pagnination source provided"/>
+		<meta name="schema:accessibilitySummary" content="Summary of accessibility functions not provided in the sample. To be computed later."/>
+		<meta name="schema:accessibilityFeature" content="structuralNavigation"/>
+		<meta name="schema:accessibilityFeature" content="displayTransformability"/>
+		<meta name="schema:accessibilityFeature" content="readingOrder"/>
+		<meta name="schema:accessibilityFeature" content="unlocked"/>
+		<meta name="schema:accessibilityFeature" content="printPageNumbers"/>
+		<meta name="schema:accessibilityFeature" content="MathML"/>
+		<meta name="schema:accessMode" content="textual"/>
+		<meta name="schema:accessMode" content="visual"/>
+		<meta name="schema:accessModeSufficient" content="textual"/>
+		<meta name="schema:accessibilityHazard" content="none"/>
+	</head>
+	<book showin="blp">
+		<frontmatter>
+			<doctitle><sent id="id_1">Default word sample for docx-to-dtbook tests</sent></doctitle>
+			<docauthor><sent id="id_2">PAVIE Nicolas</sent></docauthor>
+			<level1 id="mentions_avh">
+                <p id="mentions_legales">
+                    <sent id="legals_avh_1">Cette adaptation est réalisée et diffusée par l’Association Valentin Haüy dans le cadre de l’exception au droit d’auteur en faveur des personnes en situation de handicap prévue aux articles L. 122-5, L. 122-5-1 et L. 122-5-2 et R. 122-13 à 22 du code de la propriété intellectuelle.</sent>
+                    <sent id="legals_avh_2">Cette adaptation ne peut être utilisée que par la personne qui l’a empruntée et ne doit en aucune manière être transmise à un tiers de quelque façon que ce soit.</sent></p></level1>
+		</frontmatter>
+		<bodymatter id="bodymatter_0001">
+			<level1>
+				<doctitle><sent id="id_3">Sample document</sent></doctitle>
+				<covertitle xml:lang="fr-FR"><sent id="id_4">A Cover title of the document.</sent></covertitle>
+				<p><sent id="id_5">This is a sample document for testing the conversion of a word document into a dtbook xml within the pipeline 2.</sent></p>
+				<p><sent id="id_6">This document includes a generated table of content</sent></p>
+			</level1>
+			<level1 class="print_toc">
+				<h1><sent id="id_7">Table des matières</sent></h1>
+				<list type="pl">
+					<li>
+						<lic> <sent id="id_8">Text processing</sent></lic>
+						<lic class="pagenum">  <sent id="id_9">1</sent></lic>
+					</li>
+					<li>
+						<lic> <sent id="id_10">Text processing</sent></lic>
+						<lic class="pagenum">  <sent id="id_11">1</sent></lic>
+					</li>
+					<li>
+						<lic> <sent id="id_12">Text processing</sent></lic>
+						<lic class="pagenum">  <sent id="id_13">1</sent></lic>
+					</li>
+					<li>
+						<lic> <sent id="id_14">Text processing</sent></lic>
+						<lic class="pagenum">  <sent id="id_15">2</sent></lic>
+					</li>
+					<li>
+						<lic> <sent id="id_16">Text processing</sent></lic>
+						<lic class="pagenum">  <sent id="id_17">7</sent></lic>
+					</li>
+					<li>
+						<lic> <sent id="id_18">Text processing</sent></lic>
+						<lic class="pagenum">  <sent id="id_19">7</sent></lic>
+					</li>
+					<li>
+						<lic> <sent id="id_20">Text processing</sent></lic>
+						<lic class="pagenum">  <sent id="id_21">7</sent></lic>
+					</li>
+					<li>
+						<lic> <sent id="id_22">Text processing</sent></lic>
+						<lic class="pagenum">  <sent id="id_23">7</sent></lic>
+					</li>
+				</list>
+			</level1>
+			<level1><p/></level1>
+			<level1>
+				<h1>  <sent id="id_24">Text processing</sent></h1>
+				<level2>
+					<h2>  <sent id="id_25">Text decorations</sent></h2>
+					<p xml:lang="fr-FR"><sent id="id_26"><span xml:lang="en-US">Lorem <em>ipsum dolor sit amet,</em> consectetur adipiscing elit. </span>Suspendisse eros felis, blandit ac vestibulum eget, interdum eu odio.</sent> <sent id="id_27"><strong>Curabitur placerat sed urna</strong> eget vestibulum.</sent> <sent id="id_28">Etiam consectetur, enim dictum efficitur consequat, lacus elit ultricies orci, quis tincidunt tellus leo id massa.</sent> <sent id="id_29">Nulla ac tristique massa.</sent> <sent id="id_30">Fusce laoreet facilisis molestie.</sent> <sent id="id_31">Quisque rutrum, risus tincidunt aliquet varius<em>, diam <strong>ligula finibus</strong> metus,</em> non gravida augue justo non dui.</sent> <sent id="id_32">Donec maximus vel mi auctor eleifend.</sent> <sent id="id_33">Quisque sit amet massa vel ipsum consectetur fringilla.</sent> <sent id="id_34">Aliquam luctus elementum neque, <strong>sit amet <em>tristique urna</em> tempus id. Mauris vitae</strong> libero ut mi finibus malesuada sit amet <sup>eu tortor</sup>.</sent> <sent id="id_35">Vivamus <sub>eleifend fermentum</sub> rhoncus.</sent> <sent id="id_36">Fusce <sup>eleifend <strong>orci</strong> tempus</sup> libero fringilla, at gravida <sub>libero <em>vulputate</em>.</sub></sent> <sent id="id_37"><sub>Sed</sub> ac volutpat nisl.</sent> <sent id="id_38">Suspendisse sed ornare sem.</sent> </p>
+					<level3>
+						<h3 xml:lang="fr-FR">  <sent id="id_39">Page 2</sent></h3>
+						<p/>
+					</level3>
+				</level2>
+				<level2>
+					<h2 xml:lang="fr-FR">  <sent id="id_40">Text alignment</sent></h2>
+					<p xml:lang="fr-FR"><sent id="id_41">Nullam sit amet arcu molestie, aliquet quam vitae, scelerisque mauris.</sent> <sent id="id_42">Duis orci tortor, eleifend a dui ut, bibendum ultricies est.</sent> <sent id="id_43">Pellentesque lacinia leo lacinia elit eleifend placerat.</sent> <sent id="id_44">Etiam justo tellus, rutrum in justo eu, laoreet porttitor urna.</sent> <sent id="id_45">Integer fringilla elit quis magna sollicitudin, eu cursus nisi consequat.</sent> <sent id="id_46">Suspendisse eget dolor cursus, vulputate nisl id, pharetra orci.</sent> <sent id="id_47">Morbi tincidunt convallis nulla sed mattis.</sent> <sent id="id_48">Donec ac eleifend nulla.</sent> <sent id="id_49">In consectetur augue nisi, eu vestibulum nisl pulvinar et.</sent></p>
+					<p xml:lang="fr-FR"><sent id="id_50">Nam volutpat molestie magna vitae porta.</sent> <sent id="id_51">Cras commodo neque ut nulla efficitur, sit amet dapibus massa mattis.</sent> <sent id="id_52">Aenean sit amet ante fringilla, auctor arcu ut, interdum velit.</sent> <sent id="id_53">Vestibulum porttitor quam a urna tempus bibendum.</sent> <sent id="id_54">Fusce orci augue, pharetra sit amet nisl dictum, dignissim finibus mauris.</sent> <span xml:lang="en-US"><sent id="id_55">Curabitur vestibulum accumsan leo.</sent> </span><sent id="id_56"><span xml:lang="en-US">Sed eget gravida tortor, at egestas massa. </span>Donec sit amet erat et diam commodo blandit non a velit.</sent> <sent id="id_57">Vivamus sit amet elementum ex.</sent> <sent id="id_58">Praesent consectetur, magna id luctus gravida, elit metus ullamcorper lorem, ut imperdiet eros ipsum id nulla.</sent> <sent id="id_59">Aenean sit amet maximus sapien.</sent> <sent id="id_60">Ut neque metus, consectetur eu metus nec, efficitur tincidunt lectus.</sent> <sent id="id_61">Donec sollicitudin, justo nec malesuada volutpat, nulla ante bibendum urna, id accumsan felis ante ut diam</sent><sent id="id_62"><noteref idref="#footnote-1" class="Footnote">1</noteref>.</sent> </p>
+					<p xml:lang="fr-FR"><sent id="id_63">Sed faucibus metus tortor, non aliquam est malesuada quis.</sent> <sent id="id_64">Vivamus lobortis nibh et libero pharetra, eget blandit tellus suscipit.</sent> <sent id="id_65">Quisque congue mauris a dui congue placerat.</sent> <sent id="id_66">Nunc egestas nisi sit amet mi tempus vehicula eget eget libero.</sent> <sent id="id_67">Praesent ullamcorper lacus fringilla libero varius, ac lobortis tortor fringilla.</sent> <sent id="id_68">Sed tincidunt nulla ac augue ullamcorper viverra.</sent> <sent id="id_69">Vestibulum vestibulum, urna id consequat vehicula, eros ligula sollicitudin leo, non hendrerit nulla purus eget tellus.</sent> <sent id="id_70">Etiam id bibendum ante, quis dapibus massa.</sent> </p>
+					<p xml:lang="fr-FR"><sent id="id_71">Quisque id ultrices velit, ut lacinia lorem.</sent> <sent id="id_72">Phasellus a aliquam ex, vitae sodales odio.</sent> <sent id="id_73">Praesent pellentesque sapien quis commodo placerat.</sent> <sent id="id_74">Praesent vel lectus facilisis, eleifend eros vel, convallis metus.</sent> <sent id="id_75">Interdum et malesuada fames ac ante ipsum primis in faucibus.</sent> <sent id="id_76">Pellentesque pretium tincidunt diam ut aliquam.</sent> <sent id="id_77">Quisque cursus tortor laoreet, tristique lorem id, iaculis purus.</sent> <sent id="id_78">Fusce blandit turpis turpis, id vestibulum metus mattis in.</sent> <sent id="id_79">Maecenas tristique gravida lobortis.</sent> </p>
+					<note id="footnote-1" class="Footnote">
+						<p> <sent id="id_80">This is a simple footnote with some text and an abbreviation <abbr>etc.</abbr> and an acronym <acronym pronounce="no">T.T.</acronym> in a footnote.</sent></p>
+					</note>
+				</level2>
+				<level2>
+					<h2>  <sent id="id_81">Testing acronyms and abbreviations</sent></h2>
+					<p><sent id="id_82">Let’s say I need to add the abbreviation <abbr>etc.</abbr> for example.</sent></p>
+					<p><sent id="id_83">Or I need to use <abbr>etal.</abbr> as a reference to an article.</sent></p>
+					<p><sent id="id_84">And then I use it again here: <abbr>etal.</abbr> and <abbr>etc.</abbr> .</sent></p>
+					<p><sent id="id_85">Now let use an acronym, like <acronym pronounce="yes">IEEE</acronym> or <acronym pronounce="yes">DAISY</acronym>, and lets reuse <acronym pronounce="yes">IEEE</acronym>.</sent></p>
+					<p><sent id="id_86">PRINT PAGE 3</sent></p>
+				</level2>
+				<level2>
+					<h2>  <sent id="id_87">Testing special blocks</sent></h2>
+					<p><sent id="id_88">This is a paragraph</sent></p>
+					<sidebar xml:lang="fr-FR" render="optional">
+						<hd><sent id="id_89">This is a head for</sent></hd>
+						<p><sent id="id_90">a sidebar optional</sent></p>
+					</sidebar>
+					<sidebar xml:lang="fr-FR" render="required">
+						<hd><sent id="id_91">This is a head for</sent></hd>
+						<p><sent id="id_92">a sidebar required</sent></p>
+					</sidebar>
+					<poem xml:lang="fr-FR">
+						<linegroup>
+							<line><sent id="id_93">This is a simple poem.</sent></line>
+							<line><sent id="id_94">With 2 lines of texte.</sent></line>
+						</linegroup>
+					</poem>
+					<p><sent id="id_95">A paragraphe</sent></p>
+					<sidebar xml:lang="fr-FR" render="optional"><p><sent id="id_96">A sidebar</sent></p></sidebar>
+					<bridgehead xml:lang="fr-FR"><sent id="id_97">Followed by a bridgehead</sent></bridgehead>
+					<p><sent id="id_98">A separation paragrpahe.</sent></p>
+					<sidebar xml:lang="fr-FR" render="optional"><p><sent id="id_99">This is a sidebar as last element</sent></p></sidebar>
+					<p><sent id="id_100">Testing blockquotes:</sent></p>
+					<blockquote xml:lang="fr-FR">
+						<p><sent id="id_101">This is a simple quote for testing</sent></p>
+						<author><sent id="id_102">N.P.</sent></author>
+					</blockquote>
+					<list type="ul">
+						<li><p xml:lang="sv-SE"><sent id="id_103">With a list following for a bugfix evaluation</sent></p></li>
+						<li><p xml:lang="sv-SE"><sent id="id_104">blablabla</sent></p></li>
+					</list>
+					<p xml:lang="fr-FR"><sent id="id_105">Testing epigraphs :</sent></p>
+					<epigraph xml:lang="fr-FR">
+						<p><sent id="id_106">This is a simple epigraph test that i’m writing.</sent></p>
+						<p><sent id="id_107">In creating, the only hard thing’s to begin : a grass blade’s no easier to make than an oak.</sent></p>
+						<author><sent id="id_108">James Russel Lowel, A Fable for Critics.</sent></author>
+					</epigraph>
+				</level2>
+				<level2>
+					<h2>  <sent id="id_109">Manually inserted breaks</sent></h2>
+					<p><sent id="id_110">This is a first text<noteref idref="#footnote-2" class="Footnote">2</noteref> followed by a page break :</sent></p>
+					<p><sent id="id_111">This is a second text followed by a continous section break:</sent></p>
+					<p><sent id="id_112">This is a third text<noteref idref="#endnote-1" class="Endnote">1</noteref> followed by a section page break :</sent> </p>
+					<p><sent id="id_113"><pagenum page="normal" id="page1">5</pagenum>This is a text followed by a section break to pair page :</sent> </p>
+					<p><sent id="id_114">This is a text followed by a section break to impair page</sent> </p>
+					<note id="footnote-2" class="Footnote"><p> <sent id="id_115">This a seconde sample texte with an <a external="true" href="https://daisy.org/?s=SaveAsDAISY&amp;test-of-text">hyperlink</a> to a page</sent></p>
+					</note>
+				</level2>
+			</level1>
+			<level1>
+				<h1>  <sent id="id_116">Eléments and objects</sent></h1>
+				<level2>
+					<h2>  <sent id="id_117">Images</sent></h2>
+					<p><sent id="id_118">This an isolated image :</sent></p>
+					<p>
+						<imggroup>
+							<img src="default_sample_for_dtbook_conversion-image1.jpg" alt="The daisy consortium logo" id="rId111"/>
+							<caption imgref="rId111"><sent id="id_119">The daisy consortium logo</sent></caption>
+						</imggroup>
+					</p>
+					<p><sent id="id_120">This is an inlined</sent> <imggroup>
+							<img src="default_sample_for_dtbook_conversion-image2.jpg" alt="The daisy consortium logo" id="rId122"/>
+							<caption imgref="rId122"><sent id="id_121">The daisy consortium logo</sent> </caption></imggroup>  <sent id="id_122">images.</sent></p>
+					<p><sent id="id_123">Here is</sent> <imggroup><img src="default_sample_for_dtbook_conversion-image3.jpg" alt="The daisy consortium logo" id="rId133"/></imggroup><sent id="id_124">and</sent> <imggroup><img src="default_sample_for_dtbook_conversion-image4.jpg" alt="The daisy consortium logo" id="rId144"/></imggroup><sent id="id_125">image.</sent></p>
+					<p><sent id="id_126">This is an integrated shape (with caption):</sent></p>
+					<p><imggroup><img src="default_sample_for_dtbook_conversion-Shape5.png" alt="This is a simple blue box shape" id="Shape5"/></imggroup>
+					</p>
+					<p><span><sent id="id_127">Zone de texte 7:</sent> </span></p>
+					<p><sent id="id_128">This is a « SmartArt » insertion with caption</sent></p>
+					<p>
+						<imggroup>
+							<img src="default_sample_for_dtbook_conversion-Shape7.png" alt="This a simple process illustration with 3 text box from left to right separated by arrows pointing to the right :&#xA;- sample&#xA;- Analysis&#xA;- text " id="Shape7"/>
+							<caption imgref="Shape7"><sent id="id_129">Smart art example 1</sent></caption>
+						</imggroup>
+					</p>
+					<p><sent id="id_130">Trying a chart</sent></p>
+					<p><imggroup><img src="default_sample_for_dtbook_conversion-Shape8.png" alt="Simple chart for conversion tests (inlined)" id="Shape8"/></imggroup>
+					</p>
+					<p><sent id="id_131">Non inlined shape :</sent> </p>
+					<p><imggroup><img src="default_sample_for_dtbook_conversion-Shape9.png" alt="" id="Shape9"/></imggroup>
+					</p>
+					<p><imggroup><img src="default_sample_for_dtbook_conversion-Shape10.png" alt="" id="Shape10"/></imggroup><sent id="id_132">Trying image groups with languages</sent></p>
+				</level2>
+				<level2>
+					<h2>  <sent id="id_133">Equations</sent></h2>
+					<p><sent id="id_134">This a test<noteref idref="#endnote-2" class="Endnote">2</noteref> with an basic equation</sent></p>
+					<p xml:lang="fr-FR">
+						<mml:math xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/" display="block" id="id_135">
+							<mml:msup>
+								<mml:mrow>
+									<mml:mrow>
+										<mml:mo>(</mml:mo>
+										<mml:mrow>
+											<mml:mi>x</mml:mi>
+											<mml:mi>+</mml:mi>
+											<mml:mi>a</mml:mi>
+										</mml:mrow>
+										<mml:mo>)</mml:mo>
+									</mml:mrow>
+								</mml:mrow>
+								<mml:mrow><mml:mi>n</mml:mi></mml:mrow>
+							</mml:msup>
+							<mml:mi>=</mml:mi>
+							<mml:munderover>
+								<mml:mo>∑</mml:mo>
+								<mml:mrow>
+									<mml:mi>k</mml:mi>
+									<mml:mi>=</mml:mi>
+									<mml:mn>0</mml:mn>
+								</mml:mrow>
+								<mml:mrow><mml:mi>n</mml:mi></mml:mrow>
+							</mml:munderover>
+							<mml:mrow>
+								<mml:mrow>
+									<mml:mo>(</mml:mo>
+									<mml:mrow>
+										<mml:mfrac>
+											<mml:mrow><mml:mi>n</mml:mi></mml:mrow>
+											<mml:mrow><mml:mi>k</mml:mi></mml:mrow>
+										</mml:mfrac>
+									</mml:mrow>
+									<mml:mo>)</mml:mo>
+								</mml:mrow>
+								<mml:msup>
+									<mml:mrow><mml:mi>x</mml:mi></mml:mrow>
+									<mml:mrow><mml:mi>k</mml:mi></mml:mrow>
+								</mml:msup>
+								<mml:msup>
+									<mml:mrow><mml:mi>a</mml:mi></mml:mrow>
+									<mml:mrow>
+										<mml:mi>n</mml:mi>
+										<mml:mo>-</mml:mo>
+										<mml:mi>k</mml:mi>
+									</mml:mrow>
+								</mml:msup>
+							</mml:mrow>
+						</mml:math>
+					</p>
+				</level2>
+				<level2>
+					<h2>  <sent id="id_137">Tables</sent></h2>
+					<p><sent id="id_138">This is a table with a header row</sent></p>
+					<table border="1">
+						<tbody>
+							<tr>
+								<td><p><sent id="id_139">Header 1</sent></p></td>
+								<td><p><sent id="id_140">Header 2</sent></p></td>
+								<td><p><sent id="id_141">Header 3</sent></p></td>
+								<td><p><sent id="id_142">Header 4</sent></p></td>
+							</tr>
+							<tr>
+								<td><p><sent id="id_143">a</sent></p></td>
+								<td><p><sent id="id_144">z</sent></p></td>
+								<td><p><sent id="id_145">e</sent></p></td>
+								<td><p><sent id="id_146">r</sent></p></td>
+							</tr>
+							<tr>
+								<td><p><sent id="id_147">ty</sent></p></td>
+								<td><p><sent id="id_148">qsd</sent></p></td>
+								<td><p><sent id="id_149">fgh</sent></p></td>
+								<td><p><sent id="id_150">jkl</sent></p></td>
+							</tr>
+							<tr>
+								<td><p><sent id="id_151">wxc</sent></p></td>
+								<td><p><sent id="id_152">cvb</sent></p></td>
+								<td><p><sent id="id_153">aa</sent></p></td>
+								<td><p> <sent id="id_154">zeza</sent></p></td>
+							</tr>
+						</tbody>
+					</table>
+					<p><sent id="id_155">The same table with a caption</sent></p>
+					<table border="1">
+						<tbody>
+							<tr>
+								<td><p><sent id="id_156">Header 1</sent></p></td>
+								<td><p><sent id="id_157">Header 2</sent></p></td>
+								<td><p><sent id="id_158">Header 3</sent></p></td>
+								<td><p><sent id="id_159">Header 4</sent></p></td>
+							</tr>
+							<tr>
+								<td><p><sent id="id_160">a</sent></p></td>
+								<td><p><sent id="id_161">z</sent></p></td>
+								<td><p><sent id="id_162">e</sent></p></td>
+								<td><p><sent id="id_163">r</sent></p></td>
+							</tr>
+							<tr>
+								<td><p><sent id="id_164">ty</sent></p></td>
+								<td><p><sent id="id_165">qsd</sent></p></td>
+								<td><p><sent id="id_166">fgh</sent></p></td>
+								<td><p><sent id="id_167">jkl</sent></p></td>
+							</tr>
+							<tr>
+								<td><p><sent id="id_168">wxc</sent></p></td>
+								<td><p><sent id="id_169">cvb</sent></p></td>
+								<td><p><sent id="id_170">aa</sent></p></td>
+								<td><p> <sent id="id_171">zeza</sent></p></td>
+							</tr>
+						</tbody>
+					</table>
+					<table border="1">
+						<caption><sent id="id_172">This is a table with headers <em>entête</em> on row and column and several <em>langage</em> marked.</sent> </caption>
+						<tbody>
+							<tr>
+								<td><p><sent id="id_173">Header col 1</sent></p></td>
+								<td><p><sent id="id_174">Header col 2</sent></p></td>
+								<td><p><sent id="id_175">Header col 2</sent></p></td>
+								<td><p><sent id="id_176">Header col 2</sent></p></td>
+							</tr>
+							<tr>
+								<td><p><sent id="id_177">Header row 1</sent></p></td>
+								<td><p><sent id="id_178">az</sent></p></td>
+								<td><p><sent id="id_179">er</sent></p></td>
+								<td><p><sent id="id_180">ty</sent></p></td>
+							</tr>
+							<tr>
+								<td><p><sent id="id_181">Header row 2</sent></p></td>
+								<td><p><sent id="id_182">z</sent></p></td>
+								<td><p><sent id="id_183">e</sent></p></td>
+								<td><p><sent id="id_184">r</sent></p></td>
+							</tr>
+							<tr>
+								<td><p><sent id="id_185">Header row 3</sent></p></td>
+								<td><p><sent id="id_186">qsd</sent></p></td>
+								<td><p><sent id="id_187">fgh</sent></p></td>
+								<td><p><sent id="id_188">jkl</sent></p></td>
+							</tr>
+							<tr>
+								<td><p><sent id="id_189">Header row 4</sent></p></td>
+								<td><p><sent id="id_190">cvb</sent></p></td>
+								<td><p><sent id="id_191">aa</sent></p></td>
+								<td><p> <sent id="id_192">zeza</sent></p></td>
+							</tr>
+						</tbody>
+					</table>
+				</level2>
+			</level1>
+		</bodymatter>
+		<rearmatter>
+			<level1>
+				<note id="endnote-1" class="Endnote"><p> <sent id="id_193">This is a simple endote</sent></p></note>
+				<note id="endnote-2" class="Endnote">
+					<p> <sent id="id_194">This is an exemple of endnote with an <a external="true" href="https://daisy.org/?s=SaveAsDAISY&amp;test-of-text">hyperlink</a> and<sup>1</sup> <strong>other</strong> <em>things</em>.<sub> 3</sub></sent></p>
+				</note>
+			</level1>
+		</rearmatter>
+	</book>
+</dtbook>

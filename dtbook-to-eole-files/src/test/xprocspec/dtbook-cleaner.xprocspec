@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.daisy.org/ns/xprocspec"
+    xmlns:pxi="http://www.daisy.org/ns/pipeline/xproc/internal"
+    xmlns:px="http://www.daisy.org/ns/pipeline/xproc"
+     xmlns:cx="http://xmlcalabash.com/ns/extensions"
+    xmlns:d="http://www.daisy.org/ns/pipeline/data"
+    xmlns:c="http://www.w3.org/ns/xproc-step"
+    script="../../main/resources/xml/dtbook-cleaner.xpl">
+
+  <x:scenario label="test_dtbook">
+    <x:call step="px:dtbook-cleaner.script">
+        <x:input  port="source">
+            <x:document
+                type="file"
+                href="../resources/test_dtbook/input/default_sample_for_dtbook_conversion.xml"/>
+        </x:input>
+        <x:option name="result" select="concat($temp-dir,'test_dtbook/output/')"/>
+        <x:option name="temp-dir" select="concat($temp-dir,'test_dtbook/temp/')"/>
+        <x:option name="tidy" select="true()" />
+        <x:option name="repair" select="true()" />
+        <x:option name="narrator" select="false()" />
+        <x:option name="ApplySentenceDetection" select="true()" />
+    </x:call>
+    <x:context label="directory">
+        <x:document type="directory" base-uri="temp-dir" href="test_dtbook/output/"/>
+    </x:context>
+    <x:expect label="directory" type="compare">
+        <x:document type="directory" href="../resources/test_dtbook/output/"/>
+    </x:expect>
+    <x:context label="result">
+        <x:document type="file" base-uri="temp-dir" href="test_dtbook/output/default_sample_for_dtbook_conversion.xml"/>
+    </x:context>
+    <x:expect label="result" type="compare">
+        <x:document
+            type="file"
+            href="../resources/test_dtbook/output/default_sample_for_dtbook_conversion.xml"/>
+    </x:expect>
+    </x:scenario>
+
+</x:description>
