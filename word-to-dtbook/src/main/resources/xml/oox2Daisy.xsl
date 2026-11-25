@@ -122,7 +122,7 @@
 		<!-- Count languages and emit the ordered list (most frequent first, ties keep
 		     first appearance order; the $mainLanguage parameter value is excluded) -->
 		<xsl:if test="$mainLanguage and string-length($mainLanguage) &gt; 0">
-			<lang val="{@*:val}"/>
+			<lang val="{$mainLanguage}"/>
 		</xsl:if>
 		<xsl:for-each-group select="$paragraphLanguages" group-by=".">
 			<xsl:sort select="count(current-group())" data-type="number" order="descending"/>

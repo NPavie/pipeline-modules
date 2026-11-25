@@ -416,6 +416,7 @@
         <x:option name="disableDateGeneration" select="true()"/>
         <x:option name="disableGeneratorGeneration" select="true()"/>
         <x:option name="extract-shapes" select="true()" />
+        <x:option name="language" select="'fr-FR'" />
       </x:call>
       <x:context label="directory">
         <x:document type="directory" base-uri="temp-dir" href="FromSingleDocx/11.with-shapes/OutputWithShapes/"/>
