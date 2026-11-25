@@ -33,3 +33,13 @@ The expected output folder structure is then :
 - a "${output-name}.xml" updated DTBook xml, with the "avh/mentions-audio.xsl" transformation applied, and all its associated resources
 - an "${output-name}.xhtml" XHTML5 file produced from the updated DTBook
 - an "${output-name}.html" HTML4 file produced from the updated DTBook
+---
+
+## Update (implemented): EPUB3 and DAISY 2.02 exports
+
+The script additionally produces, in the output folder:
+- a "${output-name}.epub" EPUB3 file, via the dtbook-to-epub3 script (named after the dtbook base name)
+- a "${output-name}_daisy202/" DAISY 2.02 file-set, via the epub3-to-daisy202 script run on the EPUB
+  (its dc:identifier-named result subfolder is relocated to "${output-name}_daisy202")
+
+See plan.md section 7 for the implementation notes.

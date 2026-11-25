@@ -125,6 +125,7 @@ if MathML is present in the document.</p>
 			px:fileset-add-entry
 			px:fileset-copy
 			px:fileset-filter
+			px:fileset-from-dir
 			px:fileset-store
 		</p:documentation>
 	</p:import>
@@ -150,6 +151,16 @@ if MathML is present in the document.</p>
 	<p:import href="http://www.daisy.org/pipeline/modules/html-utils/library.xpl">
 		<p:documentation>
 			px:html-downgrade
+		</p:documentation>
+	</p:import>
+	<p:import href="http://www.daisy.org/pipeline/modules/dtbook-to-epub3/dtbook-to-epub3.xpl">
+		<p:documentation>
+			px:dtbook-to-epub3.script
+		</p:documentation>
+	</p:import>
+	<p:import href="http://www.daisy.org/pipeline/modules/epub3-to-daisy202/epub3-to-daisy202.xpl">
+		<p:documentation>
+			px:epub3-to-daisy202.script
 		</p:documentation>
 	</p:import>
 	<cx:import href="http://www.daisy.org/pipeline/modules/css-utils/library.xsl" type="application/xslt+xml">
@@ -432,6 +443,114 @@ if MathML is present in the document.</p>
 			</p:input>
 			<p:with-option name="href" select="concat(resolve-uri($result),$output-base,'.html')"/>
 		</p:store>
+
+		<!-- EPUB3 output, produced with the dtbook-to-epub3 script from the stored DTBook (with the audio
+		     mention). The script names the EPUB after the DTBook base name: ${base}.epub in the output folder.
+		     An error must not stop the remaining steps -->
+		<p:try name="try-epub" px:message="Producing the EPUB3 file">
+			<p:group>
+				<p:output port="result" primary="true" sequence="true"/>
+				<px:dtbook-to-epub3.script name="to-epub">
+					<p:input port="source">
+						<p:pipe step="reload-final" port="result"/>
+					</p:input>
+					<p:with-option name="result" select="resolve-uri($result)"/>
+					<p:with-option name="temp-dir" select="concat($temp-dir,'dtbook-to-epub3/')"/>
+					<p:with-option name="validation" select="'off'"/>
+					<p:with-option name="audio" select="'false'"/>
+				</px:dtbook-to-epub3.script>
+				<p:identity name="epub-done">
+					<p:input port="source">
+						<p:pipe step="to-epub" port="status"/>
+					</p:input>
+				</p:identity>
+			</p:group>
+			<p:catch name="catch-epub">
+				<p:output port="result" primary="true" sequence="true"/>
+				<p:identity name="catch-epub-result">
+					<p:input port="source">
+						<p:empty/>
+					</p:input>
+				</p:identity>
+				<px:message severity="ERROR">
+					<p:input port="error">
+						<p:pipe step="catch-epub" port="error"/>
+					</p:input>
+				</px:message>
+				<p:identity px:message="Failed to produce the EPUB3 file, continuing with the remaining steps" px:message-severity="WARN"/>
+			</p:catch>
+		</p:try>
+
+		<!-- DAISY 2.02 output, produced with the epub3-to-daisy202 script from the EPUB3 file. The script
+		     stores the DAISY 2.02 file-set in a subfolder of its result folder named after the EPUB
+		     dc:identifier; that subfolder is copied to ${base}_daisy202 in the output folder.
+		     An error must not stop the remaining steps -->
+		<p:try name="try-daisy202" px:message="Producing the DAISY 2.02 file-set">
+			<p:group>
+				<p:output port="result" primary="true" sequence="true"/>
+				<p:variable name="daisy202-temp" select="concat($temp-dir,'daisy202/')"/>
+				<px:epub3-to-daisy202.script name="to-daisy202" cx:depends-on="try-epub">
+					<p:with-option name="source" select="concat(resolve-uri($result),$output-base,'.epub')"/>
+					<p:with-option name="result" select="$daisy202-temp"/>
+					<p:with-option name="temp-dir" select="concat($temp-dir,'epub3-to-daisy202/')"/>
+					<p:with-option name="validation" select="'off'"/>
+				</px:epub3-to-daisy202.script>
+				<p:identity name="daisy202-done">
+					<p:input port="source">
+						<p:pipe step="to-daisy202" port="validation-status"/>
+					</p:input>
+				</p:identity>
+				<!-- the DAISY 2.02 file-set has been stored in a single subfolder of $daisy202-temp -->
+				<p:directory-list name="daisy202-list" cx:depends-on="daisy202-done">
+					<p:with-option name="path" select="$daisy202-temp"/>
+				</p:directory-list>
+				<px:fileset-from-dir name="daisy202-fileset">
+					<p:with-option name="path" select="concat($daisy202-temp,(//c:directory/c:directory)[1]/@name,'/')">
+						<p:pipe step="daisy202-list" port="result"/>
+					</p:with-option>
+				</px:fileset-from-dir>
+				<!-- move the DAISY 2.02 file-set to ${base}_daisy202 in the output folder -->
+				<px:fileset-copy name="move-daisy202">
+					<p:input port="source.fileset">
+						<p:pipe step="daisy202-fileset" port="result"/>
+					</p:input>
+					<p:with-option name="target" select="concat(resolve-uri($result),$output-base,'_daisy202/')"/>
+				</px:fileset-copy>
+				<px:fileset-store name="store-daisy202" px:message="Storing the DAISY 2.02 file-set in the output folder">
+					<p:input port="fileset.in">
+						<p:pipe step="move-daisy202" port="result.fileset"/>
+					</p:input>
+					<p:input port="in-memory.in">
+						<p:pipe step="move-daisy202" port="result.in-memory"/>
+					</p:input>
+				</px:fileset-store>
+				<p:identity name="daisy202-result">
+					<p:input port="source">
+						<p:pipe step="daisy202-done" port="result"/>
+					</p:input>
+				</p:identity>
+			</p:group>
+			<p:catch name="catch-daisy202">
+				<p:output port="result" primary="true" sequence="true"/>
+				<p:identity name="catch-daisy202-result">
+					<p:input port="source">
+						<p:empty/>
+					</p:input>
+				</p:identity>
+				<px:message severity="ERROR">
+					<p:input port="error">
+						<p:pipe step="catch-daisy202" port="error"/>
+					</p:input>
+				</px:message>
+				<p:identity px:message="Failed to produce the DAISY 2.02 file-set, continuing with the remaining steps" px:message-severity="WARN"/>
+			</p:catch>
+		</p:try>
+
+		<p:sink>
+			<p:input port="source">
+				<p:pipe step="try-daisy202" port="result"/>
+			</p:input>
+		</p:sink>
 	</p:for-each>
 
 </p:declare-step>

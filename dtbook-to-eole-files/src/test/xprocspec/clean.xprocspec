@@ -85,7 +85,7 @@
 		<meta name="dc:Identifier" content="9780120348123" scheme="ean13"/>
 	</head>
 	<book>
-		<frontmatter><doctitle><sent id="id_1">Test repair</sent></doctitle><docauthor><sent id="id_2">DAISY Consortium</sent></docauthor><dtb:level1 xmlns:dtb="http://www.daisy.org/z3986/2005/dtbook/" id="mentions_avh"><dtb:p id="mentions_legales"><dtb:sent id="legals_avh_1">Cette adaptation est réalisée et diffusée par l’Association Valentin Haüy dans le cadre de l’exception au droit d’auteur en faveur des personnes en situation de handicap prévue aux articles L. 122-5, L. 122-5-1 et L. 122-5-2 et R. 122-13 à 22 du code de la propriété intellectuelle.</dtb:sent><dtb:sent id="legals_avh_2">Cette adaptation ne peut être utilisée que par la personne qui l’a empruntée et ne doit en aucune manière être transmise à un tiers de quelque façon que ce soit.</dtb:sent></dtb:p></dtb:level1>
+		<frontmatter><doctitle><sent id="id_1">Test repair</sent></doctitle><docauthor><sent id="id_2">DAISY Consortium</sent></docauthor><level1 id="mentions_avh"><p id="mentions_legales"><sent id="legals_avh_1">Cette adaptation est réalisée et diffusée par l’Association Valentin Haüy dans le cadre de l’exception au droit d’auteur en faveur des personnes en situation de handicap prévue aux articles L. 122-5, L. 122-5-1 et L. 122-5-2 et R. 122-13 à 22 du code de la propriété intellectuelle.</sent><sent id="legals_avh_2">Cette adaptation ne peut être utilisée que par la personne qui l’a empruntée et ne doit en aucune manière être transmise à un tiers de quelque façon que ce soit.</sent></p></level1>
 			
 			
 		</frontmatter>

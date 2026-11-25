@@ -314,3 +314,45 @@ The implementation follows the plan with these adjustments, all verified by the 
   + 9 images (PEFs are NOT byte-compared: they embed `dc:date` = run date); the `.xml` is compared against the
   updated expected resource (now including `mentions_audio`); both PEFs are checked to be `pef` documents with
   `row` content.
+
+## 7. Extension: EPUB3 + DAISY 2.02 outputs (implemented, green — 15/15 tests)
+
+Added at the end of the `p:for-each`, after the HTML4 store, from the stored `${base}.xml` (audio-mention
+version, reloaded via `reload-final`):
+
+- **`${base}.epub`**: the `dtbook-to-epub3` **script** is imported by its catalog URI
+  (`http://www.daisy.org/pipeline/modules/dtbook-to-epub3/dtbook-to-epub3.xpl`) and called as
+  `<px:dtbook-to-epub3.script>` with `result` = the output folder, `temp-dir`, `validation='off'`,
+  `audio='false'`. Because the script derives the EPUB name from the first input DTBook's base URI,
+  feeding it the stored `${base}.xml` produces exactly `${base}.epub` in the output folder.
+- **`${base}_daisy202/`**: the `epub3-to-daisy202` **script** is called as `<px:epub3-to-daisy202.script>`
+  with `source` = `${result}/${base}.epub`, `result` = a temp dir (`$temp-dir/daisy202/`), `validation='off'`
+  (ordered after the EPUB step via `cx:depends-on`). The script stores the DAISY 2.02 file-set in a
+  `<sanitized dc:identifier>/` subfolder of that temp dir; the subfolder is located with `p:directory-list`,
+  turned into a fileset with `px:fileset-from-dir`, and relocated with `px:fileset-copy`
+  (target = `${result}/${base}_daisy202/`) followed by `px:fileset-store` (the step that physically writes;
+  `px:fileset-copy` alone only computes the moved fileset).
+- Both conversions are wrapped in `p:try`/`p:catch` (same pattern as the PEFs): a failure logs an error
+  and the remaining outputs are still produced.
+- The `p:for-each` body now ends with `<p:sink>` (piping the last `p:try`'s result): the last step of the
+  body must have no output port, otherwise err:XS0006 "Unbound primary output port on last step".
+- **pom.xml**: new compile deps `dtbook-to-epub3` and `epub3-to-daisy202` (versions managed by the released
+  BOM 1.15.5); their catalogs make the script URIs resolvable.
+- **Tests**: the `test_dtbook` scenario additionally asserts the existence of
+  `default_sample_for_dtbook_conversion.epub` and of the `default_sample_for_dtbook_conversion_daisy202/`
+  folder containing `ncc.html`.
+
+## 8. Fix: no more `dtb:` prefix on the injected AVH mentions (green — 16/16 tests)
+
+The mentions injected by `avh/mentions-legales.xsl` / `avh/mentions-audio.xsl` were serialized as
+`<dtb:level1 xmlns:dtb="http://www.daisy.org/z3986/2005/dtbook/" …>` because the stylesheets bound the DTBook
+namespace to a `dtb:` prefix and used prefixed literal result elements. Both stylesheets now declare the
+DTBook namespace as the default namespace (`xmlns=…`) **and** `xpath-default-namespace=…` (needed because
+unprefixed names in XSLT patterns/selects do NOT use the stylesheet default namespace — only literal result
+elements do). The injected elements now come out prefix-less (`<level1 id="mentions_avh">…`), matching the
+rest of the document. The doctyping/"plain text" hypothesis was ruled out: the mentions are applied on a
+parsed tree inside `clean.xpl`, before `pxi:dtbook-doctyping` (`cx:serialize="true"`) runs.
+
+Tests: `clean.xprocspec` inline expectation and the `test_dtbook/output` expected resource were refreshed
+to the prefix-less form; `dtbook-cleaner.xprocspec` gained a regression assertion
+`count(//*[starts-with(name(),'dtb:')])=0` on the stored DTBook.

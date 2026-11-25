@@ -30,7 +30,14 @@
                     count(/*/*[@name='default_sample_for_dtbook_conversion_NUM_ABR.pef'])=1 and
                     count(/*/*[@name='default_sample_for_dtbook_conversion.xhtml'])=1 and
                     count(/*/*[@name='default_sample_for_dtbook_conversion.html'])=1 and
+                    count(/*/*[@name='default_sample_for_dtbook_conversion.epub'])=1 and
+                    count(/*/*[@name='default_sample_for_dtbook_conversion_daisy202'])=1 and
                     count(/*/*[ends-with(@name,'.jpg') or ends-with(@name,'.png')])=9" equals="true()"/>
+    <x:context label="daisy202 directory">
+        <x:document type="directory" base-uri="temp-dir" href="test_dtbook/output/default_sample_for_dtbook_conversion_daisy202/"/>
+    </x:context>
+    <x:expect label="DAISY 2.02 file-set contains ncc.html" type="xpath"
+              test="count(/*/*[@name='ncc.html'])=1" equals="true()"/>
     <x:context label="result">
         <x:document type="file" base-uri="temp-dir" href="test_dtbook/output/default_sample_for_dtbook_conversion.xml"/>
     </x:context>
@@ -41,6 +48,8 @@
     </x:expect>
     <x:expect label="audio mention present" type="xpath"
               test="count(//*[@id='mentions_audio'])=1 and count(//*[@id='mentions_legales'])=1" equals="true()"/>
+    <x:expect label="no dtb-prefixed elements in the result" type="xpath"
+              test="count(//*[starts-with(name(),'dtb:')])=0" equals="true()"/>
     <x:context label="pef-int">
         <x:document type="file" base-uri="temp-dir" href="test_dtbook/output/default_sample_for_dtbook_conversion_NUM_INT.pef"/>
     </x:context>
