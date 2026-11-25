@@ -77,6 +77,12 @@
 			<p px:role="desc">Encapsulate sentences within the document</p>
 		</p:documentation>
 	</p:option>
+	<p:option name="audio-mention" select="false()" cx:as="xs:boolean">
+		<p:documentation xmlns="http://www.w3.org/1999/xhtml">
+			<h2 px:role="name">Add the audio mention</h2>
+			<p px:role="desc" xml:space="preserve">Add the AVH audio mention (avh/mentions-audio.xsl) to the document.</p>
+		</p:documentation>
+	</p:option>
 	<p:option name="WithDoctype" select="true()" cx:as="xs:boolean" px:hidden="true">
 		<p:documentation xmlns="http://www.w3.org/1999/xhtml">
 			<h2 px:role="name">Include doctype in resulting DTBook(s)</h2>
@@ -148,7 +154,19 @@
 			<p:input port="stylesheet"><p:document href="avh/mentions-legales.xsl"/></p:input>
 			<p:input port="parameters"><p:empty/></p:input>
 		</p:xslt>
-		
+		<!-- add mentions audio -->
+		<p:choose>
+			<p:when test="$audio-mention">
+				<p:xslt name="add-mentions-audio">
+					<p:input port="stylesheet"><p:document href="avh/mentions-audio.xsl"/></p:input>
+					<p:input port="parameters"><p:empty/></p:input>
+				</p:xslt>
+			</p:when>
+			<p:otherwise>
+				<p:identity/>
+			</p:otherwise>
+		</p:choose>
+
     	<p:choose>
     		<p:when test="$WithDoctype">
     			<!-- DTBook with doctype (result is serialized) -->
