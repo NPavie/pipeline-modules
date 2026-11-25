@@ -37,7 +37,7 @@
       <meta name="dc:Contributor" content="Test contributor"/>
       <meta name="dc:SourceDate" content="11/3/2025 12:00:00 AM"/>
       <meta name="dc:Rights" content="No copyright provided"/>
-      <meta name="a11y:pageBreakSource" content="No pagnination source provided"/>
+      <meta name="pageBreakSource" content="No pagnination source provided"/>
       <meta name="schema:accessibilitySummary" content="Summary of accessibility functions not provided in the sample. To be computed later."/>
       <meta name="schema:accessibilityFeature" content="structuralNavigation"/>
       <meta name="schema:accessibilityFeature" content="displayTransformability"/>
