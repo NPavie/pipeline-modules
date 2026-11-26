@@ -2869,12 +2869,31 @@
 					</xsl:call-template>
 					<!-- <xsl:value-of disable-output-escaping="yes" select="concat('&lt;prodnote render=&quot;optional&quot; xml:lang=&quot;',$lang,'&quot;&gt;')"/> -->
 				</xsl:if>
-
-				<xsl:call-template name="Paracharacterstyle">
-					<xsl:with-param name="characterStyle" select="$characterparaStyle"/>
-					<xsl:with-param name="txt" select="$txt"/>
-					<xsl:with-param name="flag" select="'1'"/>
-				</xsl:call-template>
+				<!-- NP 2024/06/14 change language handling -->
+				<p>
+					<xsl:if test="not($lang=$documentLanguages/*:lang[1]/@*:val)">
+						<xsl:attribute name="xml:lang">
+							<xsl:value-of select="$lang"/>
+						</xsl:attribute>
+					</xsl:if>
+					<xsl:call-template name="ParaHandler">
+						<xsl:with-param name="flag" select="'0'"/>
+						<xsl:with-param name="acceptRevisions" select="$acceptRevisions"/>
+						<xsl:with-param name="version" select="$version"/>
+						<xsl:with-param name="flagNote" select="$flagNote"/>
+						<xsl:with-param name="checkid" select="$checkid"/>
+						<xsl:with-param name="pagination" select="$pagination"/>
+						<xsl:with-param name="mastersubpara" select="$masterparastyle"/>
+						<xsl:with-param name="imgOptionPara" select="$imgOptionPara"/>
+						<xsl:with-param name="dpiPara" select="$dpiPara"/>
+						<xsl:with-param name="txt" select="$txt"/>
+						<xsl:with-param name="charparahandlerStyle" select="$characterparaStyle"/>
+						<xsl:with-param name="sOperators" select="$sOperators"/>
+						<xsl:with-param name="sMinuses" select="$sMinuses"/>
+						<xsl:with-param name="sNumbers" select="$sNumbers"/>
+						<xsl:with-param name="sZeros" select="$sZeros"/>
+					</xsl:call-template>
+				</p>
 				<xsl:if test="not(following-sibling::w:p)">
 					<xsl:call-template name="CloseNode">
 						<xsl:with-param name="qname" select="'prodnote'"/>
@@ -2906,12 +2925,31 @@
 						<xsl:with-param name="attributes" select="$attributes" />
 					</xsl:call-template>
 				</xsl:if>
-
-				<xsl:call-template name="Paracharacterstyle">
-					<xsl:with-param name="characterStyle" select="$characterparaStyle"/>
-					<xsl:with-param name="txt" select="$txt"/>
-					<xsl:with-param name="flag" select="'1'"/>
-				</xsl:call-template>
+				<!-- NP 2024/06/14 change language handling -->
+				<p>
+					<xsl:if test="not($lang=$documentLanguages/*:lang[1]/@*:val)">
+						<xsl:attribute name="xml:lang">
+							<xsl:value-of select="$lang"/>
+						</xsl:attribute>
+					</xsl:if>
+					<xsl:call-template name="ParaHandler">
+						<xsl:with-param name="flag" select="'0'"/>
+						<xsl:with-param name="acceptRevisions" select="$acceptRevisions"/>
+						<xsl:with-param name="version" select="$version"/>
+						<xsl:with-param name="flagNote" select="$flagNote"/>
+						<xsl:with-param name="checkid" select="$checkid"/>
+						<xsl:with-param name="pagination" select="$pagination"/>
+						<xsl:with-param name="mastersubpara" select="$masterparastyle"/>
+						<xsl:with-param name="imgOptionPara" select="$imgOptionPara"/>
+						<xsl:with-param name="dpiPara" select="$dpiPara"/>
+						<xsl:with-param name="txt" select="$txt"/>
+						<xsl:with-param name="charparahandlerStyle" select="$characterparaStyle"/>
+						<xsl:with-param name="sOperators" select="$sOperators"/>
+						<xsl:with-param name="sMinuses" select="$sMinuses"/>
+						<xsl:with-param name="sNumbers" select="$sNumbers"/>
+						<xsl:with-param name="sZeros" select="$sZeros"/>
+					</xsl:call-template>
+				</p>
 				<xsl:if test="not(following-sibling::w:p)">
 					<xsl:call-template name="CloseNode">
 						<xsl:with-param name="qname" select="'prodnote'"/>
@@ -2978,22 +3016,29 @@
 							</xsl:call-template>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:variable name="paragraphLanguage">
-								<xsl:call-template name="GetParagraphLanguage">
-									<xsl:with-param name="paragraphNode" select="."/>
-								</xsl:call-template>
-							</xsl:variable>
 							<!-- NP 2024/06/14 change language handling -->
 							<p>
-								<xsl:if test="not($paragraphLanguage=$documentLanguages/*:lang[1]/@*:val)">
+								<xsl:if test="not($lang=$documentLanguages/*:lang[1]/@*:val)">
 									<xsl:attribute name="xml:lang">
-										<xsl:value-of select="$paragraphLanguage"/>
+										<xsl:value-of select="$lang"/>
 									</xsl:attribute>
 								</xsl:if>
-								<xsl:call-template name="Paracharacterstyle">
-									<xsl:with-param name="characterStyle" select="$characterparaStyle"/>
-									<xsl:with-param name="txt" select="$txt"/>
+								<xsl:call-template name="ParaHandler">
 									<xsl:with-param name="flag" select="'0'"/>
+									<xsl:with-param name="acceptRevisions" select="$acceptRevisions"/>
+									<xsl:with-param name="version" select="$version"/>
+									<xsl:with-param name="flagNote" select="$flagNote"/>
+									<xsl:with-param name="checkid" select="$checkid"/>
+									<xsl:with-param name="pagination" select="$pagination"/>
+									<xsl:with-param name="mastersubpara" select="$masterparastyle"/>
+									<xsl:with-param name="imgOptionPara" select="$imgOptionPara"/>
+									<xsl:with-param name="dpiPara" select="$dpiPara"/>
+									<xsl:with-param name="txt" select="$txt"/>
+									<xsl:with-param name="charparahandlerStyle" select="$characterparaStyle"/>
+									<xsl:with-param name="sOperators" select="$sOperators"/>
+									<xsl:with-param name="sMinuses" select="$sMinuses"/>
+									<xsl:with-param name="sNumbers" select="$sNumbers"/>
+									<xsl:with-param name="sZeros" select="$sZeros"/>
 								</xsl:call-template>
 							</p>
 							<!-- <xsl:call-template name="Paracharacterstyle">
@@ -3168,11 +3213,31 @@
 							</author>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:call-template name="Paracharacterstyle">
-								<xsl:with-param name="characterStyle" select="$characterparaStyle"/>
-								<xsl:with-param name="txt" select="$txt"/>
-								<xsl:with-param name="flag" select="'1'"/>
-							</xsl:call-template>
+							<!-- NP 2024/06/14 change language handling -->
+							<p>
+								<xsl:if test="not($lang=$documentLanguages/*:lang[1]/@*:val)">
+									<xsl:attribute name="xml:lang">
+										<xsl:value-of select="$lang"/>
+									</xsl:attribute>
+								</xsl:if>
+								<xsl:call-template name="ParaHandler">
+									<xsl:with-param name="flag" select="'0'"/>
+									<xsl:with-param name="acceptRevisions" select="$acceptRevisions"/>
+									<xsl:with-param name="version" select="$version"/>
+									<xsl:with-param name="flagNote" select="$flagNote"/>
+									<xsl:with-param name="checkid" select="$checkid"/>
+									<xsl:with-param name="pagination" select="$pagination"/>
+									<xsl:with-param name="mastersubpara" select="$masterparastyle"/>
+									<xsl:with-param name="imgOptionPara" select="$imgOptionPara"/>
+									<xsl:with-param name="dpiPara" select="$dpiPara"/>
+									<xsl:with-param name="txt" select="$txt"/>
+									<xsl:with-param name="charparahandlerStyle" select="$characterparaStyle"/>
+									<xsl:with-param name="sOperators" select="$sOperators"/>
+									<xsl:with-param name="sMinuses" select="$sMinuses"/>
+									<xsl:with-param name="sNumbers" select="$sNumbers"/>
+									<xsl:with-param name="sZeros" select="$sZeros"/>
+								</xsl:call-template>
+							</p>
 						</xsl:otherwise>
 				</xsl:choose>
 				<xsl:if test="not(following-sibling::w:p)">
@@ -3219,22 +3284,29 @@
 						</hd>
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:variable name="paragraphLanguage">
-							<xsl:call-template name="GetParagraphLanguage">
-								<xsl:with-param name="paragraphNode" select="."/>
-							</xsl:call-template>
-						</xsl:variable>
 						<!-- NP 2024/06/14 change language handling -->
 						<p>
-							<xsl:if test="not($paragraphLanguage=$documentLanguages/*:lang[1]/@*:val)">
+							<xsl:if test="not($lang=$documentLanguages/*:lang[1]/@*:val)">
 								<xsl:attribute name="xml:lang">
-									<xsl:value-of select="$paragraphLanguage"/>
+									<xsl:value-of select="$lang"/>
 								</xsl:attribute>
 							</xsl:if>
-							<xsl:call-template name="Paracharacterstyle">
-								<xsl:with-param name="characterStyle" select="$characterparaStyle"/>
-								<xsl:with-param name="txt" select="$txt"/>
+							<xsl:call-template name="ParaHandler">
 								<xsl:with-param name="flag" select="'0'"/>
+								<xsl:with-param name="acceptRevisions" select="$acceptRevisions"/>
+								<xsl:with-param name="version" select="$version"/>
+								<xsl:with-param name="flagNote" select="$flagNote"/>
+								<xsl:with-param name="checkid" select="$checkid"/>
+								<xsl:with-param name="pagination" select="$pagination"/>
+								<xsl:with-param name="mastersubpara" select="$masterparastyle"/>
+								<xsl:with-param name="imgOptionPara" select="$imgOptionPara"/>
+								<xsl:with-param name="dpiPara" select="$dpiPara"/>
+								<xsl:with-param name="txt" select="$txt"/>
+								<xsl:with-param name="charparahandlerStyle" select="$characterparaStyle"/>
+								<xsl:with-param name="sOperators" select="$sOperators"/>
+								<xsl:with-param name="sMinuses" select="$sMinuses"/>
+								<xsl:with-param name="sNumbers" select="$sNumbers"/>
+								<xsl:with-param name="sZeros" select="$sZeros"/>
 							</xsl:call-template>
 						</p>
 					</xsl:otherwise>
@@ -3289,15 +3361,27 @@
 						</xsl:variable>
 						<!-- NP 2024/06/14 change language handling -->
 						<p>
-							<xsl:if test="not($paragraphLanguage=$documentLanguages/*:lang[1]/@*:val)">
+							<xsl:if test="not($lang=$documentLanguages/*:lang[1]/@*:val)">
 								<xsl:attribute name="xml:lang">
-									<xsl:value-of select="$paragraphLanguage"/>
+									<xsl:value-of select="$lang"/>
 								</xsl:attribute>
 							</xsl:if>
-							<xsl:call-template name="Paracharacterstyle">
-								<xsl:with-param name="characterStyle" select="$characterparaStyle"/>
-								<xsl:with-param name="txt" select="$txt"/>
+							<xsl:call-template name="ParaHandler">
 								<xsl:with-param name="flag" select="'0'"/>
+								<xsl:with-param name="acceptRevisions" select="$acceptRevisions"/>
+								<xsl:with-param name="version" select="$version"/>
+								<xsl:with-param name="flagNote" select="$flagNote"/>
+								<xsl:with-param name="checkid" select="$checkid"/>
+								<xsl:with-param name="pagination" select="$pagination"/>
+								<xsl:with-param name="mastersubpara" select="$masterparastyle"/>
+								<xsl:with-param name="imgOptionPara" select="$imgOptionPara"/>
+								<xsl:with-param name="dpiPara" select="$dpiPara"/>
+								<xsl:with-param name="txt" select="$txt"/>
+								<xsl:with-param name="charparahandlerStyle" select="$characterparaStyle"/>
+								<xsl:with-param name="sOperators" select="$sOperators"/>
+								<xsl:with-param name="sMinuses" select="$sMinuses"/>
+								<xsl:with-param name="sNumbers" select="$sNumbers"/>
+								<xsl:with-param name="sZeros" select="$sZeros"/>
 							</xsl:call-template>
 						</p>
 					</xsl:otherwise>
