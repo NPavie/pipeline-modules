@@ -1921,14 +1921,31 @@
 
 		<!--Checking numbering.xml for the type of List-->
 		<xsl:variable name="numStyle" as="element(w:lvl)?">
-			<xsl:variable name="num" select="$numberingXml//w:numbering/w:num[@w:numId=$checknumId]"/>
+			<xsl:variable name="num">
+				<xsl:choose>
+					<xsl:when test="$numberingXml//w:numbering/w:num[@w:numId=$checknumId]">
+						<xsl:sequence select="$numberingXml//w:numbering/w:num[@w:numId=$checknumId]"/>
+					</xsl:when>
+					<!-- Default to numId=1 if the specified numId is not found -->
+					<xsl:when test="$numberingXml//w:numbering/w:num[@w:numId=1]">
+						<xsl:sequence select="$numberingXml//w:numbering/w:num[@w:numId=1]"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:sequence select="''"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
 			<xsl:choose>
 				<xsl:when test="$num/w:lvlOverride[@w:ilvl=$checkilvl]/w:lvl">
 					<xsl:sequence select="$num/w:lvlOverride[@w:ilvl=$checkilvl]/w:lvl"/>
 				</xsl:when>
-				<xsl:otherwise>
+				<xsl:when test="$num/w:abstractNumId/@w:val">
 					<xsl:variable name="abstrNum" as="xs:string" select="$num/w:abstractNumId/@w:val"/>
 					<xsl:variable name="abstrNum" select="$numberingXml//w:numbering/w:abstractNum[@w:abstractNumId=$abstrNum]"/>
+					<xsl:sequence select="$abstrNum/w:lvl[@w:ilvl=$checkilvl]"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:variable name="abstrNum" select="$numberingXml//w:numbering/w:abstractNum[@w:abstractNumId=0]"/>
 					<xsl:sequence select="$abstrNum/w:lvl[@w:ilvl=$checkilvl]"/>
 				</xsl:otherwise>
 			</xsl:choose>
@@ -1993,8 +2010,8 @@
 			<xsl:with-param name="close" select="$checkilvl"/>
 		</xsl:call-template>
 
-		<xsl:variable name="numFormat" as="xs:string" select="$numStyle/w:numFmt/@w:val"/>
-		<xsl:variable name="lvlText" as="xs:string" select="$numStyle/w:lvlText/@w:val"/>
+		<xsl:variable name="numFormat" as="xs:string?" select="$numStyle/w:numFmt/@w:val"/>
+		<xsl:variable name="lvlText" as="xs:string?" select="$numStyle/w:lvlText/@w:val"/>
 
 		<xsl:call-template name="recStart">
 			<xsl:with-param name="numStyle" select="$numStyle"/>
