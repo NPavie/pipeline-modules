@@ -44,7 +44,7 @@
          <doctitle>Date issue</doctitle>
          <docauthor>Nicolas Pavie</docauthor>
       </frontmatter>
-      <bodymatter id="bodymatter_0001"><level1><h1>  MathML conversion test files</h1><p xml:lang="fr-FR"/><p>Equation 1</p><p xml:lang="fr-FR"><mml:math xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/" display="block">
+      <bodymatter id="bodymatter_0001"><level1><h1>MathML conversion test files</h1><p xml:lang="fr-FR"/><p>Equation 1</p><p xml:lang="fr-FR"><mml:math xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/" display="block">
             <mml:msup>
                <mml:mrow>
                   <mml:mi>e</mml:mi>

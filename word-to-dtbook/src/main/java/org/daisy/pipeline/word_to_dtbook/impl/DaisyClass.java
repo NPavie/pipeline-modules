@@ -2322,7 +2322,6 @@ public class DaisyClass {
 			} else {
 				text = lvlText;
 			}
-			text = text + " ";
 		} else {
 			text = lvlText.substring(index);
 			List<String> absFormat = AbstractFormat(numId, xpath, docBuilder);
@@ -2380,7 +2379,8 @@ public class DaisyClass {
 			temp = temp.replace("%", "");
 			text = lvlText.substring(0, lvlText.indexOf('%')) + temp;
 		}
-		return text + " ";
+		text = text.trim();
+		return text.isEmpty() ? "" : text + " ";
 	}
 
 	public void IncrementHeadingCounters(String iLvlString, String numId, String absId) {
